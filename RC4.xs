@@ -46,7 +46,7 @@ CODE:
     Safefree(self);
 
 SV*
-rc4(RC4_KEY*self, SV* insv)
+_rc4(RC4_KEY*self, SV* insv)
 PREINIT:
     int len;
     unsigned char * indata;

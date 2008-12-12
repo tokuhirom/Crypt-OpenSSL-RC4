@@ -17,9 +17,12 @@ eval {
 };
 
 sub RC4 {
-    my ($pass, $in) = @_;
-    my $rc4 = Crypt::OpenSSL::RC4->new($pass);
-    $rc4->rc4($in);
+    if (ref $_[0]) {
+        $_[0]->_rc4($_[1]);
+    } else {
+        my $rc4 = Crypt::OpenSSL::RC4->new($_[0]);
+        $rc4->_rc4($_[1]);
+    }
 }
 
 1;

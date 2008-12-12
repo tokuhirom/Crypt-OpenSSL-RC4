@@ -45,7 +45,7 @@ use Crypt::OpenSSL::RC4;
     my $message = RC4( "This is my passphrase", "looks good" );
     my $one     = Crypt::OpenSSL::RC4->new("This is my passphrase");
     my $two     = Crypt::OpenSSL::RC4->new("This is not my passphrase");
-    is $one->rc4("looks good"), $message;
+    is $one->RC4("looks good"), $message;
 }
 
 {
@@ -53,11 +53,11 @@ use Crypt::OpenSSL::RC4;
     my $one = Crypt::OpenSSL::RC4->new("This is my passphrase");
 
     # These two must be the same number of bytes
-    my $message_one = $one->rc4("This is a message of precise length");
-    my $message_two = $one->rc4("This is also a known-length message");
+    my $message_one = $one->RC4("This is a message of precise length");
+    my $message_two = $one->RC4("This is also a known-length message");
     my $two         = Crypt::OpenSSL::RC4->new("This is my passphrase");
-    isnt $message_two, $two->rc4("This is also a known-length message");
-    is $message_two, $two->rc4("This is also a known-length message");
+    isnt $message_two, $two->RC4("This is also a known-length message");
+    is $message_two, $two->RC4("This is also a known-length message");
 }
 
 {
@@ -68,7 +68,7 @@ use Crypt::OpenSSL::RC4;
     my $encrypted = do {
         my $k = Crypt::OpenSSL::RC4->new($key);
         my @pieces = split /(?=\s+|(?!\n)\Z)/, $message;
-        join "", map $k->rc4($_), @pieces;
+        join "", map $k->RC4($_), @pieces;
     };
     my $failed;
 
@@ -76,7 +76,7 @@ use Crypt::OpenSSL::RC4;
     for my $split_size ( 1, 4, 5, 10, 30, 9999 ) {
         my $k      = Crypt::OpenSSL::RC4->new($key);
         my @pieces = $message =~ /(.{1,$split_size})/sg;    # no /o!
-        my $trial  = join "", map $k->rc4($_), @pieces;
+        my $trial  = join "", map $k->RC4($_), @pieces;
         if ( $trial ne $encrypted ) {
             $failed = $split_size;
             last;
