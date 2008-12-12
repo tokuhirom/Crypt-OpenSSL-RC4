@@ -2,7 +2,7 @@ package Crypt::OpenSSL::RC4;
 use strict;
 use warnings;
 use Exporter 'import';
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 our @ISA;
 our @EXPORT = qw/RC4/;
 
