@@ -3,3 +3,7 @@ RC4.bs
 RC4.c
 MANIFEST
 META.yml
+RC4.o
+blib/
+inc/
+pm_to_blib
