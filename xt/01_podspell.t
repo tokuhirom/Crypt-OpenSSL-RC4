@@ -8,3 +8,13 @@ __DATA__
 Default Name
 default {at} example.com
 Crypt::OpenSSL::RC4
+ARCFOUR
+Matsuno
+RSA
+SSL
+Tokuhiro
+WEP
+Wikipedia
+XS
+cryptosystems
+keystream
