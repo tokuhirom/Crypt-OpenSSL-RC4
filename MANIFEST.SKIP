@@ -21,3 +21,5 @@
 \.swp$
 \.swo$
 \.(?:bs|o|c)$
+^MYMETA.yml$
+^_build/

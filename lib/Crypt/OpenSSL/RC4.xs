@@ -48,7 +48,7 @@ CODE:
 SV*
 _rc4(RC4_KEY*self, SV* insv)
 PREINIT:
-    int len;
+    STRLEN len;
     unsigned char * indata;
 CODE:
     unsigned char *buf;
