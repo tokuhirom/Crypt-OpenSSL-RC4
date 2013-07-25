@@ -16,7 +16,9 @@ my $build = Module::Build->new(
     test_requires       => {
         'Test::More' => '0.98',
     },
-    requries             => {},
+    requries             => {
+        'XSLoader' => 0,
+    },
     recommends           => {},
     recursive_test_files => 1,
     sign                 => 0,
