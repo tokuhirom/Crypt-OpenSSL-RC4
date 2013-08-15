@@ -24,7 +24,12 @@ my $build = Module::Build->new(
     sign                 => 0,
     create_license       => 1,
     extra_linker_flags   => '-lcrypto',
-    c_source             => './lib/Crypt/OpenSSL/'
+    c_source             => './lib/Crypt/OpenSSL/',
+    meta_merge => {
+        resources => {
+            repository => 'https://github.com/tokuhirom/Crypt-OpenSSL-RC4',
+        },
+    },
 );
 $build->create_build_script;
 
